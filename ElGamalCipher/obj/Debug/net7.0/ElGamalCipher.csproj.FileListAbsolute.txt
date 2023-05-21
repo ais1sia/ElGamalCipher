@@ -1,0 +1,15 @@
+C:\Users\Admin\RiderProjects\ElGamalCipher\ElGamalCipher\bin\Debug\net7.0\ElGamalCipher.exe
+C:\Users\Admin\RiderProjects\ElGamalCipher\ElGamalCipher\bin\Debug\net7.0\ElGamalCipher.deps.json
+C:\Users\Admin\RiderProjects\ElGamalCipher\ElGamalCipher\bin\Debug\net7.0\ElGamalCipher.runtimeconfig.json
+C:\Users\Admin\RiderProjects\ElGamalCipher\ElGamalCipher\bin\Debug\net7.0\ElGamalCipher.dll
+C:\Users\Admin\RiderProjects\ElGamalCipher\ElGamalCipher\bin\Debug\net7.0\ElGamalCipher.pdb
+C:\Users\Admin\RiderProjects\ElGamalCipher\ElGamalCipher\obj\Debug\net7.0\ElGamalCipher.csproj.AssemblyReference.cache
+C:\Users\Admin\RiderProjects\ElGamalCipher\ElGamalCipher\obj\Debug\net7.0\ElGamalCipher.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\RiderProjects\ElGamalCipher\ElGamalCipher\obj\Debug\net7.0\ElGamalCipher.AssemblyInfoInputs.cache
+C:\Users\Admin\RiderProjects\ElGamalCipher\ElGamalCipher\obj\Debug\net7.0\ElGamalCipher.AssemblyInfo.cs
+C:\Users\Admin\RiderProjects\ElGamalCipher\ElGamalCipher\obj\Debug\net7.0\ElGamalCipher.csproj.CoreCompileInputs.cache
+C:\Users\Admin\RiderProjects\ElGamalCipher\ElGamalCipher\obj\Debug\net7.0\ElGamalCipher.dll
+C:\Users\Admin\RiderProjects\ElGamalCipher\ElGamalCipher\obj\Debug\net7.0\refint\ElGamalCipher.dll
+C:\Users\Admin\RiderProjects\ElGamalCipher\ElGamalCipher\obj\Debug\net7.0\ElGamalCipher.pdb
+C:\Users\Admin\RiderProjects\ElGamalCipher\ElGamalCipher\obj\Debug\net7.0\ElGamalCipher.genruntimeconfig.cache
+C:\Users\Admin\RiderProjects\ElGamalCipher\ElGamalCipher\obj\Debug\net7.0\ref\ElGamalCipher.dll
