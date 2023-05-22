@@ -14,7 +14,7 @@ public class KeyGenerator
 {
     private static Random random = new Random();
 
-    public static KeyPair GenerateKeys(int keySizeInBits)
+    public KeyPair GenerateKeys(int keySizeInBits)
     {
         KeyPair keyPair = new KeyPair();
         keyPair.P = GeneratePrimeNumber(keySizeInBits);
@@ -30,7 +30,7 @@ public class KeyGenerator
         }
     }
 
-    public static BigInteger CalculatePrimitiveRoot(BigInteger p)
+    public BigInteger CalculatePrimitiveRoot(BigInteger p)
     {
         BigInteger phi = p - 1;
         BigInteger[] primeFactors = Factorize(phi);
@@ -58,7 +58,7 @@ public class KeyGenerator
         throw new Exception("No primitive root found for the given prime number.");
     }
 
-    public static BigInteger[] Factorize(BigInteger n)
+    public BigInteger[] Factorize(BigInteger n)
     {
         List<BigInteger> factors = new List<BigInteger>();
         BigInteger[] primes = SieveOfEratosthenes(1000);

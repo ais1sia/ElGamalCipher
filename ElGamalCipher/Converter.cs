@@ -6,23 +6,38 @@ namespace ElGamalCipher;
 
 public static class Converter
 {
-
-    public static byte[] HexFormat(string str)
-    {
-        byte[] bytes = new byte[str.Length / 2];
-        for (int i = 0; i < bytes.Length; i++)
-        {
-            bytes[i] = Convert.ToByte(str.Substring(i * 2, 2), 16);
-        }
-
-        return bytes;
-    }
-    
+ 
     public static string BigIntegerToHex(BigInteger number)
     {
         byte[] bytes = number.ToByteArray();
         Array.Reverse(bytes); // Odwrócenie kolejności bajtów
-        return BitConverter.ToString(bytes).Replace("-", "").ToLower();
+        return BitConverter.ToString(bytes).Replace("-", "");
+    }
+    
+    public static byte[] BigIntegerToByteArray(BigInteger number)
+    {
+        byte[] byteArray = number.ToByteArray();
+
+        // Handle negative BigInteger values
+        if (number.Sign == -1)
+        {
+            // If the most significant byte is zero, it will be removed during ToByteArray()
+            // Add a leading zero byte to preserve the sign of the value
+            if (byteArray[byteArray.Length - 1] == 0x00)
+            {
+                Array.Resize(ref byteArray, byteArray.Length + 1);
+            }
+            // Invert all the bytes to restore the original negative value
+            for (int i = 0; i < byteArray.Length; i++)
+            {
+                byteArray[i] = (byte)~byteArray[i];
+            }
+        }
+
+        // Reverse the byte order to match little-endian encoding
+        Array.Reverse(byteArray);
+
+        return byteArray;
     }
     
     public static string BigIntegerArrayToHexString(BigInteger[] numbers)
@@ -52,7 +67,7 @@ public static class Converter
         return bigIntegers;
     }
     
-    public static byte[] BigIntegerArrayToByteArray(BigInteger[] bigIntegers)
+  /*  public static byte[] BigIntegerArrayToByteArray(BigInteger[] bigIntegers)
     {
         byte[] byteArray = new byte[bigIntegers.Length * sizeof(int)];
         for (int i = 0; i < bigIntegers.Length; i++)
@@ -63,6 +78,12 @@ public static class Converter
         }
         return byteArray;
     }
+    */
+  public static byte[] BigIntegerArrayToByteArray(BigInteger[] numbers)
+  {
+      byte[] result = numbers.SelectMany(n => n.ToByteArray()).ToArray();
+      return result;
+  }
     public static byte[] StringToByteArray(string input)
     {
         // Convert the string to a byte array using ASCII encoding
@@ -84,39 +105,4 @@ public static class Converter
         return sb.ToString();
     }
 
-    // Converts 1 byte to String form with complement to a given number <n>
-    // e.g. nr = 8: (byte) 10 => (String) "00001010"
-    public static string ByteToBin(byte oneByte, int nr)
-    {
-        var s = new StringBuilder(Convert.ToString(oneByte, 2));
-        var length = nr - s.Length;
-        for (int i = 0; i < length; i++)
-        {
-            s.Insert(0, "0");
-        }
-
-        return s.ToString();
-    }
-
-    // Converts 1 String of byte value to int array of binary values, e.g "10101010" => int[8]
-    public static int[] BinStringToIntArr(string b)
-    {
-        return b.Select(c => int.Parse(c.ToString())).ToArray();
-    }
-
-    // Converts byte array to int array of binary values, e.g. byte[8] => int[64]
-    public static int[] ByteArrToIntArr(byte[] input)
-    {
-        var result = new int[input.Length * 8];
-        for (int i = 0; i < input.Length; i++)
-        {
-            var b = ByteToBin(input[i], 8).ToCharArray();
-            for (int j = 0; j < 8; j++)
-            {
-                result[(8 * i) + j] = int.Parse(b[j].ToString());
-            }
-        }
-
-        return result;
-    }
 }
